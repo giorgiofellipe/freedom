@@ -14,5 +14,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "moment": "~2.13.0",
+    "jquery-2.2.4.min": "https://code.jquery.com/jquery-2.2.4.min.js"
+  }
 }
