@@ -1,0 +1,40 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #D64541;
+    color: #F1A9A0;
+    text-align: center;
+}
+
+.top-text {
+    font-size: 80px;
+}
+
+.bottom-text {
+    font-size: 60px;
+}
+
+.days {
+    font-size: 60px;
+    color: #E4F1FE;
+}
+
+.timer {
+    font-size: 90px;
+    color: #E4F1FE;
+    display: inline-block;
+}
+
+.hours-ctn,
+.minutes-ctn,
+.seconds-ctn,
+.divider {
+    float: left;
+    width: 80px;
+}
+
+.hours-label,
+.minutes-label,
+.seconds-label {
+    max-width: 80px;
+    font-size: 20px;
+}

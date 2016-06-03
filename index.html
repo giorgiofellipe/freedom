@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>O adeus do melhor de todos :(</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <script src="bower_components/jQuery/dist/jquery.min.js" charset="utf-8"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+  </head>
+  <body>
+
+    <div class="top-text">
+        Faltam
+    </div>
+    <div class="days">
+
+    </div>
+    <div class="timer">
+        <div class="hours-ctn">
+            <div class="hours">
+            </div>
+            <div class="hours-label">horas</div>
+        </div>
+        <span class="divider">:</span>
+        <div class="minutes-ctn">
+            <div class="minutes">
+            </div>
+            <div class="minutes-label">minutos</div>
+        </div>
+        <span class="divider">:</span>
+        <div class="seconds-ctn">
+            <div class="seconds">
+            </div>
+            <div class="seconds-label">segundos</div>
+        </div>
+    </div>
+    <div class="bottom-text">
+        para a liberdade!
+    </div>
+  </body>
+  <script type="text/javascript">
+    var eventTime= moment("2016-06-08 18:00:00", "YYYY-MM-DD HH:mm:ss").unix();
+    var currentTime = moment().unix();
+    var diffTime = eventTime - currentTime;
+    var duration = moment.duration(diffTime*1000, 'milliseconds');
+    var interval = 1000;
+
+    setInterval(function(){
+        setInfo();
+    }, interval);
+    setInfo();
+
+    function setInfo() {
+      duration = moment.duration(duration - interval, 'milliseconds');
+      if (duration._milliseconds > 0) {
+          if (duration.days() > 0) {
+              $('.days').text(duration.days() + ' dias');
+          } else {
+              $('.days').hide();
+          }
+
+          $('.hours').text(("00" + duration.hours()).slice(-2));
+          if (duration.hours() > 1) {
+              $('.hours-label').text('horas');
+          } else {
+              $('.hours-label').text('hora');
+          }
+
+          $('.minutes').text(("00" + duration.minutes()).slice(-2));
+          if (duration.minutes() > 1) {
+              $('.minutes-label').text('minutos');
+          } else {
+              $('.minutes-label').text('minuto');
+          }
+
+          $('.seconds').text(("00" + duration.seconds()).slice(-2));
+          if (duration.seconds() > 1) {
+              $('.seconds-label').text('segundos');
+          } else {
+              $('.seconds-label').text('segundo');
+          }
+      } else {
+          $('.top-text').text("A LIBERDADE JÁ CHEGOU!");
+          $('.timer').hide();
+          $('.bottom-text').hide();
+      }
+    }
+  </script>
+</html>
