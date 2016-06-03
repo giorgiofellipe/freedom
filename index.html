@@ -40,7 +40,7 @@
     </div>
   </body>
   <script type="text/javascript">
-    var eventTime= moment("2016-06-08 18:00:00", "YYYY-MM-DD HH:mm:ss").unix();
+    var eventTime= moment("2016-06-08 17:55:00", "YYYY-MM-DD HH:mm:ss").unix();
     var currentTime = moment().unix();
     var diffTime = eventTime - currentTime;
     var duration = moment.duration(diffTime*1000, 'milliseconds');
@@ -81,9 +81,11 @@
               $('.seconds-label').text('segundo');
           }
       } else {
-          $('.top-text').text("A LIBERDADE JÁ CHEGOU!");
+          $('.top-text').html("A hora chegou!");
+          $('.days').css('font-size', '28px');
+          $('.days').html("Obrigado a todos pela paciência,<br>desculpem qualquer indecência, impertinência, improvidência, indecência, <br>agradeço por terem ajudado com a minha independência,<br>agradeço pela preferência! ;)");
           $('.timer').hide();
-          $('.bottom-text').hide();
+          $('.bottom-text').html("Vocês sentirão a minha falta.<br>:)");
       }
     }
   </script>
